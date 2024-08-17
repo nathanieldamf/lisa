@@ -8,7 +8,9 @@ function App() {
   const [emojiIndex, setEmojiIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [fallingEmojis, setFallingEmojis] = useState([]);
+  const [hideDonkey, setHideDonkey] = useState(false);
   const [audio] = useState(new Audio('art.mp3'));
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,6 +43,15 @@ function App() {
       return () => clearTimeout(timer);
     } else if (animationStep > 6) {
       setOnLoadScreen(false);
+    }
+  }, [animationStep]);
+
+  useEffect(() => {
+    if (animationStep === 4) {
+      setHideDonkey(true); // Hide donkey emoji after it's shown
+    }
+    if (animationStep === 6) {
+      setHideDonkey(false); // Reset visibility for future animations
     }
   }, [animationStep]);
 
