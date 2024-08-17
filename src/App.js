@@ -187,17 +187,17 @@ function App() {
                 </div>
               )}
               {animationStep === 4 && (
-                <div className="text-5xl text-center">
+                <div className="text-[51px] text-center">
                   🐶
                 </div>
               )}
               {animationStep === 5 && (
-                <div className="text-5xl text-center">
+                <div className="text-[51px] text-center">
                   🐱
                 </div>
               )}
               {animationStep === 6 && (
-                <div className="text-5xl text-center">
+                <div className="text-[51px] text-center">
                  🐔
                 </div>
               )}
