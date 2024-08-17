@@ -165,8 +165,8 @@ function App() {
                   </span>
                 ))}
               </div>
-              <div className="text-gray-500 text-base absolute bottom-4">
-                {isMobile ? 'Touch one' : 'Click one'}
+              <div className="text-gray-500 text-base absolute top-4">
+                {isMobile ? 'Tap one' : 'Click one'}
               </div>
             </>
           ) : (
