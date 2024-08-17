@@ -172,7 +172,7 @@ function App() {
           ) : (
             <>
               {animationStep === 1 && (
-                <div className="text-5xl text-center tracking-tight">
+                <div className="text-5xl text-center tracking-tight md:px-[20%]">
                   From the Creator of Banana Tape Wall
                 </div>
               )}
@@ -211,10 +211,10 @@ function App() {
             <span className="text-base text-gray-800 font-semibold">• Maurizio Cattelan</span>
           </div>
           <div className='flex absolute bottom-4 right-4 md:bottom-7 md:right-7 space-x-2'>
-            <a href="">
+            <a href="https://x.com/ddccsolana">
               Twitter
             </a>
-            <a href="">
+            <a href="https://t.me/DDCCportal">
               Telegram
             </a>
           </div>
