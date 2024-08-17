@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'CustomFont';
+    src: url('/public/r.ttf') format('truetype');
+    /* Other font formats (woff, woff2, etc.) could also be added here */
+}
