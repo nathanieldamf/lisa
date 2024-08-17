@@ -209,8 +209,10 @@ function App() {
             </div>
           </div>
           <div className='gap-1 md:hidden'>
-            <div className="spin-in">
-              {renderFrame()}
+            <div className='flex justify-center'>
+              <div className="spin-in">
+                {renderFrame()}
+              </div>
             </div>
             <div className='text-6xl text-center'>
               DDCC
