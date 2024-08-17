@@ -170,13 +170,26 @@ function App() {
                   We present
                 </div>
               )}
-              {[3, 4, 5, 6].map((step, index) => (
-                animationStep === step && (
-                  <div key={index} className="text-6xl text-center">
-                    {['🐴', '🐶', '🐱', '🐔'][index]}
-                  </div>
-                )
-              ))}
+              {animationStep === 3 && (
+                <div className="text-5xl text-center">
+                  🐴
+                </div>
+              )}
+              {animationStep === 4 && (
+                <div className="text-5xl text-center">
+                  🐶
+                </div>
+              )}
+              {animationStep === 5 && (
+                <div className="text-5xl text-center">
+                  🐱
+                </div>
+              )}
+              {animationStep === 6 && (
+                <div className="text-5xl text-center">
+                 🐔
+                </div>
+              )}
             </>
           )}
         </div>
