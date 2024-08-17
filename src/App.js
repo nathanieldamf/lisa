@@ -135,7 +135,7 @@ function App() {
   );
 
   return (
-    <div className="h-screen w-screen flex justify-center items-center bg-white font-custom relative overflow-hidden">
+    <div className="h-[100vh] w-screen flex justify-center items-center bg-white font-custom relative overflow-hidden">
       {onLoadScreen ? (
         <div className="flex flex-col items-center justify-center h-full">
           {animationStep === 0 ? (
