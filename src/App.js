@@ -192,10 +192,10 @@ function App() {
             <span className="text-base text-gray-800 font-semibold">• dogcasso</span>
           </div>
           <div className='flex absolute bottom-4 right-4 md:bottom-7 md:right-7 space-x-2'>
-            <a href="https://x.com/">
+            <a href="https://x.com/dogcassocoin">
               Twitter
             </a>
-            <a href="https://t.me/">
+            <a href="https://t.me/dcassosol">
               Telegram
             </a>
           </div>
