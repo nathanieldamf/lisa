@@ -39,7 +39,7 @@ function App() {
     if (animationStep > 0 && animationStep <= 4) {
       const timer = setTimeout(() => {
         setAnimationStep(prev => prev + 1);
-      }, 1400);
+      }, 1700);
       return () => clearTimeout(timer);
     } else if (animationStep > 4) {
       setOnLoadScreen(false);
