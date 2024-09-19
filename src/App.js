@@ -9,7 +9,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [fallingEmojis, setFallingEmojis] = useState([]);
   const [hideDonkey, setHideDonkey] = useState(false);
-  const [audio] = useState(new Audio('art.mp3'));
+  const [audio] = useState(new Audio('https://ia902808.us.archive.org/26/items/ClairDeLunedebussy/2009-03-30-clairdelune.mp3'));
   
 
   useEffect(() => {
@@ -36,22 +36,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (animationStep > 0 && animationStep <= 6) {
+    if (animationStep > 0 && animationStep <= 4) {
       const timer = setTimeout(() => {
         setAnimationStep(prev => prev + 1);
       }, 1400);
       return () => clearTimeout(timer);
-    } else if (animationStep > 6) {
+    } else if (animationStep > 4) {
       setOnLoadScreen(false);
-    }
-  }, [animationStep]);
-
-  useEffect(() => {
-    if (animationStep === 4) {
-      setHideDonkey(true); // Hide donkey emoji after it's shown
-    }
-    if (animationStep === 6) {
-      setHideDonkey(false); // Reset visibility for future animations
     }
   }, [animationStep]);
 
@@ -65,7 +56,7 @@ function App() {
   useEffect(() => {
     if (!onLoadScreen) {
       const createFallingEmoji = () => {
-        const emojis = ['🐴', '🐶', '🐱', '🐔'];
+        const emojis = ['🦴', '🐶'];
         const newEmoji = {
           id: Date.now(),
           emoji: emojis[Math.floor(Math.random() * emojis.length)],
@@ -137,7 +128,7 @@ function App() {
 
       {/* Image container */}
       <div className="absolute inset-8 bg-white rounded-lg shadow-inner overflow-hidden">
-        <img src="d.png" alt="Masterpiece Artwork" className="w-full h-full object-cover" />
+        <img src="dog.png" alt="Masterpiece Artwork" className="w-full h-full object-cover" />
       </div>
 
       {/* Frame texture overlay */}
@@ -146,13 +137,13 @@ function App() {
   );
 
   return (
-    <div className="h-[100vh] w-screen flex justify-center items-center bg-white font-custom relative overflow-hidden">
+    <div className={`h-[100vh] w-screen flex justify-center items-center ${onLoadScreen ? 'bg-black' : 'bg-white'} font-custom relative overflow-hidden`}>
       {onLoadScreen ? (
-        <div className="flex flex-col items-center justify-center h-full">
+        <div className={`flex flex-col items-center justify-center h-full ${onLoadScreen ? 'text-white' : 'text-black'}`}>
           {animationStep === 0 ? (
             <>
               <div className="text-6xl mb-4 space-x-2">
-                {['🐴', '🐶', '🐱', '🐔'].map((emoji, index) => (
+                {['🦴', '🐶'].map((emoji, index) => (
                   <span
                     key={index}
                     role="button"
@@ -173,32 +164,22 @@ function App() {
             <>
               {animationStep === 1 && (
                 <div className="text-5xl text-center tracking-tight md:px-[20%]">
-                  From the Creator of Banana Tape Wall
+                  From a Mastermind Artist
                 </div>
               )}
               {animationStep === 2 && (
                 <div className="text-5xl text-center tracking-tight">
-                  We present
+                  We Present to You
                 </div>
               )}
               {animationStep === 3 && (
                 <div className="text-5xl text-center">
-                  🐴
+                  A True Masterpiece
                 </div>
               )}
               {animationStep === 4 && (
                 <div className="text-[51px] text-center">
-                  🐶
-                </div>
-              )}
-              {animationStep === 5 && (
-                <div className="text-[51px] text-center">
-                  🐱
-                </div>
-              )}
-              {animationStep === 6 && (
-                <div className="text-[51px] text-center">
-                 🐔
+                  dogcasso
                 </div>
               )}
             </>
@@ -207,14 +188,14 @@ function App() {
       ) : (
         <>
           <div className="absolute bottom-2 left-2 md:flex items-center space-x-2 bg-opacity-80 p-2 rounded-lg fade-in hidden">
-            <img src="artist.png" alt="Artist" className="size-14 rounded-full object-cover" />
-            <span className="text-base text-gray-800 font-semibold">• Maurizio Cattelan</span>
+            <img src="dog.png" alt="Artist" className="size-14 rounded-full object-cover" />
+            <span className="text-base text-gray-800 font-semibold">• dogcasso</span>
           </div>
           <div className='flex absolute bottom-4 right-4 md:bottom-7 md:right-7 space-x-2'>
-            <a href="https://x.com/ddccsolana">
+            <a href="https://x.com/">
               Twitter
             </a>
-            <a href="https://t.me/DDCCportal">
+            <a href="https://t.me/">
               Telegram
             </a>
           </div>
@@ -223,12 +204,12 @@ function App() {
               {renderFrame()}
             </div>
             <div className='text-6xl'>
-              DDCC
+              dogcasso
               <div className='text-lg'>
-                (Donkey • Dog • Cat • Chicken)
+                (circa 1969)
               </div>
               <div className='text-base max-w-[300px]'>   
-                Maurizio Cattelan's "The First, They Said, Should Be Sweet Like Love; The Second Bitter, Like Life; and the Third Soft, Like Death" (1995). The piece humorously and critically explores the stages of life through these animals, blending surreal imagery with commentary on innocence, hardship, and mortality. This meme-worthy masterpiece will now forever be tokenized on Solana. Cheers!
+                "dogcasso" embodies the raw energy and unfiltered creativity of the canine spirit. This avant-garde piece showcases a dynamic composition of swirling colors and spontaneous brushstrokes, capturing the essence of a dog's exuberance. The painting's abstract form and vibrant hues create a whimsical yet profound exploration of artistic expression, celebrating the playful and imaginative nature of our furry companions.
               </div>
             </div>
           </div>
@@ -241,11 +222,11 @@ function App() {
             <div className='text-6xl text-center'>
               DDCC
               <div className='text-lg'>
-                (Donkey • Dog • Cat • Chicken)
+                (circa 1969)
               </div>
             </div>
           </div>
-          <div className='absolute top-5 text-[10px] md:text-base'>CA: Az8JxuvMQPrBUVUK74Fva4AehA3TouL9xf2qsvvhkdm9</div>
+          <div className='absolute top-5 text-[10px] md:text-base'>CA: soon...</div>
           <div className="spotlight-overlay fade-in"></div>
           {fallingEmojis.map(emoji => (
             <div
