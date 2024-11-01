@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 function App() {
@@ -6,9 +6,43 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [fallingEmojis, setFallingEmojis] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const totalImages = 10; // Total number of images (m.png to m10.png)
+  const totalImages = 10;
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = React.useRef(new Audio('https://ia801008.us.archive.org/22/items/r3habxatouchofclassallaroundtheworldlalalaofficialvideo/R3HAB%20x%20A%20Touch%20Of%20Class%20-%20All%20Around%20The%20World%20%28La%20La%20La%29%20%28Official%20Video%29.mp3')); // Replace with your MP3 file path
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    // Create audio element only once when component mounts
+    audioRef.current = new Audio('mema.mp3');
+    audioRef.current.loop = true;
+    
+    // Cleanup function
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = '';
+        audioRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleAudioError = (e) => {
+      console.error('Audio playback error:', e);
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        setIsPlaying(false);
+      }
+    };
+
+    if (audioRef.current) {
+      audioRef.current.addEventListener('error', handleAudioError);
+      return () => {
+        if (audioRef.current) {
+          audioRef.current.removeEventListener('error', handleAudioError);
+        }
+      };
+    }
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,7 +64,7 @@ function App() {
       const width = height * aspectRatio;
       setDimensions({ width, height });
     };
-    img.src = `m${currentImageIndex}.png`; // Set the image source based on the current index
+    img.src = `m${currentImageIndex}.png`;
   }, [currentImageIndex]);
 
   useEffect(() => {
@@ -102,20 +136,29 @@ function App() {
 
   useEffect(() => {
     const cycleImages = setInterval(() => {
-      setCurrentImageIndex(prevIndex => (prevIndex + 1) % (totalImages + 1)); // Loop through images
-    }, 500); // Change image every 700 milliseconds
+      setCurrentImageIndex(prevIndex => (prevIndex + 1) % (totalImages + 1));
+    }, 500);
 
     return () => clearInterval(cycleImages);
   }, []);
 
-  // Play/Pause audio
-  const handlePlayPause = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
+  const handlePlayPause = async () => {
+    try {
+      if (audioRef.current) {
+        if (isPlaying) {
+          await audioRef.current.pause();
+        } else {
+          if (audioRef.current.ended) {
+            audioRef.current.currentTime = 0;
+          }
+          await audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+      }
+    } catch (error) {
+      console.error('Error handling audio:', error);
+      setIsPlaying(false);
     }
-    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -141,7 +184,7 @@ function App() {
             top: '-3rem',
             left: `${emoji.left}%`,
             animation: `fall ${emoji.animationDuration}s linear forwards`,
-            zIndex: 0 // Ensures the emojis are behind the painting frame
+            zIndex: 0
           }}
         >
           {emoji.emoji}
