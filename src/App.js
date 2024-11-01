@@ -214,7 +214,7 @@ function App() {
       {/* Play/Pause Button */}
       <button 
         onClick={handlePlayPause} 
-        className="absolute top-5 right-5 p-2 bg-yellow-500 text-white rounded-full hidden md:flex"
+        className="absolute top-5 right-5 p-2 bg-pink-500 text-white rounded-full hidden md:flex"
         style={{ fontSize: '1.5rem' }}
       >
         {isPlaying ? (
