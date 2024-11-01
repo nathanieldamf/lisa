@@ -8,6 +8,7 @@ function App() {
   const totalImages = 10;
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     // Create audio element only once when component mounts
@@ -151,16 +152,16 @@ function App() {
 
   return (
     <div className="h-[100dvh] w-screen flex justify-center items-center bg-white md:text-white font-custom relative overflow-hidden">
-      {/* Video Background */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ pointerEvents: 'none' }} // Prevent the video from capturing pointer events
       >
-        <source src="bg.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
+        <source src={`${process.env.PUBLIC_URL}/bg.mp4`} type="video/mp4" />
       </video>
 
       {/* Falling Emojis */}
