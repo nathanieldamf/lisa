@@ -5,7 +5,7 @@ function App() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [fallingEmojis, setFallingEmojis] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const totalImages = 11;
+  const totalImages = 14;
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
   const videoRef = useRef(null);
