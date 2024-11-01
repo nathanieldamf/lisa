@@ -150,7 +150,7 @@ function App() {
   };
 
   return (
-    <div className="h-[100vh] w-screen flex justify-center items-center bg-white md:text-white font-custom relative overflow-hidden">
+    <div className="h-[100dvh] w-screen flex justify-center items-center bg-white md:text-white font-custom relative overflow-hidden">
       {/* Video Background */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -207,7 +207,7 @@ function App() {
           <div className='text-lg'>circa 2024</div>
         </div>
       </div>
-      <div className='absolute top-5 text-[8px] md:text-base'>CA: APMrwq6jxn3yvHJ7BWsitpMjZV14MCzgno8pEHzgpump</div>
+      <div className='absolute top-5 text-[8px] md:text-base'>CA: updating...</div>
       <div className="spotlight-overlay fade-in"></div>
 
       {/* Play/Pause Button */}
