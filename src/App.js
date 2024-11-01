@@ -126,7 +126,7 @@ function App() {
   useEffect(() => {
     const cycleImages = setInterval(() => {
       setCurrentImageIndex(prevIndex => (prevIndex + 1) % (totalImages + 1));
-    }, 500);
+    }, 400);
 
     return () => clearInterval(cycleImages);
   }, []);
