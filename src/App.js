@@ -3,7 +3,6 @@ import './App.css';
 
 function App() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const [isMobile, setIsMobile] = useState(false);
   const [fallingEmojis, setFallingEmojis] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const totalImages = 10;
@@ -42,17 +41,6 @@ function App() {
         }
       };
     }
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const isMobileSize = window.innerWidth <= 768;
-      setIsMobile(isMobileSize);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
@@ -219,7 +207,7 @@ function App() {
           <div className='text-lg'>circa 2024</div>
         </div>
       </div>
-      <div className='absolute top-5 text-[10px] md:text-base'>CA: uploading...</div>
+      <div className='absolute top-5 text-[10px] md:text-base'>CA: APMrwq6jxn3yvHJ7BWsitpMjZV14MCzgno8pEHzgpump</div>
       <div className="spotlight-overlay fade-in"></div>
 
       {/* Play/Pause Button */}
