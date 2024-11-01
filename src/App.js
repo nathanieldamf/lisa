@@ -5,6 +5,10 @@ function App() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [isMobile, setIsMobile] = useState(false);
   const [fallingEmojis, setFallingEmojis] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const totalImages = 10; // Total number of images (m.png to m10.png)
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = React.useRef(new Audio('https://ia801008.us.archive.org/22/items/r3habxatouchofclassallaroundtheworldlalalaofficialvideo/R3HAB%20x%20A%20Touch%20Of%20Class%20-%20All%20Around%20The%20World%20%28La%20La%20La%29%20%28Official%20Video%29.mp3')); // Replace with your MP3 file path
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,8 +30,8 @@ function App() {
       const width = height * aspectRatio;
       setDimensions({ width, height });
     };
-    img.src = 'm.webp';
-  }, []);
+    img.src = `m${currentImageIndex}.png`; // Set the image source based on the current index
+  }, [currentImageIndex]);
 
   useEffect(() => {
     const createFallingEmoji = () => {
@@ -88,7 +92,7 @@ function App() {
 
       {/* Image container */}
       <div className="absolute inset-8 bg-white rounded-lg shadow-inner overflow-hidden">
-        <img src="m.webp" alt="Masterpiece Artwork" className="w-full h-full object-cover" />
+        <img src={`m${currentImageIndex}.png`} alt="Masterpiece Artwork" className="w-full h-full object-cover" />
       </div>
 
       {/* Frame texture overlay */}
@@ -96,8 +100,38 @@ function App() {
     </div>
   );
 
+  useEffect(() => {
+    const cycleImages = setInterval(() => {
+      setCurrentImageIndex(prevIndex => (prevIndex + 1) % (totalImages + 1)); // Loop through images
+    }, 500); // Change image every 700 milliseconds
+
+    return () => clearInterval(cycleImages);
+  }, []);
+
+  // Play/Pause audio
+  const handlePlayPause = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
   return (
-    <div className="h-[100vh] w-screen flex justify-center items-center bg-white font-custom relative overflow-hidden">
+    <div className="h-[100vh] w-screen flex justify-center items-center bg-white text-white font-custom relative overflow-hidden">
+      {/* Video Background */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="bg.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
       {/* Falling Emojis */}
       {fallingEmojis.map(emoji => (
         <div
@@ -113,23 +147,23 @@ function App() {
           {emoji.emoji}
         </div>
       ))}
-      
+
       {/* Main Content */}
       <div className="absolute bottom-2 left-2 md:flex items-center space-x-2 bg-opacity-80 p-2 rounded-lg fade-in hidden">
         <img src="m.webp" alt="Artist" className="size-14 rounded-full object-cover" />
-        <span className="text-base text-gray-800 font-semibold">• Freaky Lisa</span>
+        <span className="text-base font-semibold">• Mema Lisa</span>
       </div>
       <div className='flex absolute bottom-4 right-4 md:bottom-7 md:right-7 space-x-2'>
-        <a href="https://x.com/dogcassocoin">Twitter</a>
-        <a href="https://t.me/dcassosol">Telegram</a>
+        <a href="https://x.com/">Twitter</a>
+        <a href="https://t.me/">Telegram</a>
       </div>
       <div className='md:flex gap-4 hidden z-10'>
         <div className="spin-in">{renderFrame()}</div>
         <div className='text-6xl'>
-          Freaky Lisa
-          <div className='text-lg'>(circa 2024)</div>
-          <div className='text-base max-w-[300px]'>
-            In this reimagining of the Mona Lisa, the icon sports a wild, electrified hairstyle, as if she's just weathered the stormiest market plunge in history. Yet, despite the chaos—lightning flashing in the background and every hair standing on end—she maintains that classic, mysterious smile. This version of Mona Lisa perfectly captures the essence of a true holder: calm, collected, and unshaken, no matter how turbulent the world around her becomes.
+          Mema Lisa
+          <div className='text-lg'>circa 2024</div>
+          <div className='text-sm max-w-[350px]'>
+            "Mema Lisa" is a vibrant parody that reimagines the iconic Mona Lisa through the lens of crypto and internet culture. Adorned with outrageous hairstyles and colorful accessories, she embodies the playful and chaotic spirit of the digital age. With a mischievous smile, the Mema Lisa invites viewers to engage with the unpredictable nature of contemporary digital culture, where art and humor converge in a lively celebration of creativity.
           </div>
         </div>
       </div>
@@ -138,12 +172,51 @@ function App() {
           <div className="spin-in">{renderFrame()}</div>
         </div>
         <div className='text-4xl text-center'>
-          Freaky Lisa
-          <div className='text-lg'>(circa 2024)</div>
+          Mema Lisa
+          <div className='text-lg'>circa 2024</div>
         </div>
       </div>
       <div className='absolute top-5 text-[10px] md:text-base'>CA: uploading...</div>
       <div className="spotlight-overlay fade-in"></div>
+
+      {/* Play/Pause Button */}
+      <button 
+        onClick={handlePlayPause} 
+        className="absolute top-5 right-5 p-2 bg-yellow-500 text-white rounded-full shadow-lg"
+        style={{ fontSize: '1.5rem' }}
+      >
+        {isPlaying ? (
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            strokeWidth={1.5} 
+            stroke="currentColor" 
+            className="size-9"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              d="M15.75 5.25v13.5m-7.5-13.5v13.5" 
+            />
+          </svg>
+        ) : (
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            strokeWidth={1.5} 
+            stroke="currentColor" 
+            className="size-9"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" 
+            />
+          </svg>
+        )}
+      </button>
     </div>
   );
 }

@@ -4,6 +4,6 @@
 
 @font-face {
     font-family: 'CustomFont';
-    src: url('/public/r.ttf') format('truetype');
+    src: url('/public/game.ttf') format('truetype');
     /* Other font formats (woff, woff2, etc.) could also be added here */
 }
