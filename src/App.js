@@ -150,7 +150,7 @@ function App() {
   };
 
   return (
-    <div className="h-[100vh] w-screen flex justify-center items-center bg-white text-white font-custom relative overflow-hidden">
+    <div className="h-[100vh] w-screen flex justify-center items-center bg-white md:text-white font-custom relative overflow-hidden">
       {/* Video Background */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -213,7 +213,7 @@ function App() {
       {/* Play/Pause Button */}
       <button 
         onClick={handlePlayPause} 
-        className="absolute top-5 right-5 p-2 bg-yellow-500 text-white rounded-full shadow-lg"
+        className="absolute top-5 right-5 p-2 bg-yellow-500 text-white rounded-full hidden md:flex"
         style={{ fontSize: '1.5rem' }}
       >
         {isPlaying ? (
