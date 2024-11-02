@@ -208,7 +208,7 @@ function App() {
           <div className='text-lg'>circa 2024</div>
         </div>
       </div>
-      <div className='absolute top-5 text-[8px] md:text-base'>CA: updating...</div>
+      <div className='absolute top-5 text-[8px] md:text-base'>CA: 2SMWEjHuBDKcdXcZzypfZSH3p5VpfWp9EkRVJym8pump</div>
       <div className="spotlight-overlay fade-in"></div>
 
       {/* Play/Pause Button */}
