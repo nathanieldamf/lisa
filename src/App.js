@@ -183,7 +183,7 @@ function App() {
       {/* Main Content */}
       <div className="absolute bottom-2 left-2 md:flex items-center space-x-2 bg-opacity-80 p-2 rounded-lg fade-in hidden">
         <img src="m.webp" alt="Artist" className="size-14 rounded-full object-cover" />
-        <span className="text-base font-semibold">• Mema Lisa</span>
+        <span className="text-base font-semibold">• Meme Lisa</span>
       </div>
       <div className='flex absolute bottom-4 right-4 md:bottom-7 md:right-7 space-x-2'>
         <a href="https://x.com/memelisawtf" className='hover:underline'>Twitter</a>
@@ -192,7 +192,7 @@ function App() {
       <div className='md:flex gap-4 hidden z-10'>
         <div className="spin-in">{renderFrame()}</div>
         <div className='text-6xl'>
-          Mema Lisa
+          Meme Lisa
           <div className='text-lg'>circa 2024</div>
           <div className='text-sm max-w-[350px]'>
             "Meme Lisa" is a vibrant parody that reimagines the iconic Mona Lisa through the lens of crypto and internet culture. Adorned with outrageous hairstyles and colorful accessories, she embodies the playful and chaotic spirit of the digital age. With a mischievous smile, the Memecname.vercel-dns.com. Lisa invites viewers to engage with the unpredictable nature of contemporary digital culture, where art and humor converge in a lively celebration of creativity.
