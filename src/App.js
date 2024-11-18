@@ -195,7 +195,7 @@ function App() {
           Mema Lisa
           <div className='text-lg'>circa 2024</div>
           <div className='text-sm max-w-[350px]'>
-            "Mema Lisa" is a vibrant parody that reimagines the iconic Mona Lisa through the lens of crypto and internet culture. Adorned with outrageous hairstyles and colorful accessories, she embodies the playful and chaotic spirit of the digital age. With a mischievous smile, the Mema Lisa invites viewers to engage with the unpredictable nature of contemporary digital culture, where art and humor converge in a lively celebration of creativity.
+            "Meme Lisa" is a vibrant parody that reimagines the iconic Mona Lisa through the lens of crypto and internet culture. Adorned with outrageous hairstyles and colorful accessories, she embodies the playful and chaotic spirit of the digital age. With a mischievous smile, the Memecname.vercel-dns.com. Lisa invites viewers to engage with the unpredictable nature of contemporary digital culture, where art and humor converge in a lively celebration of creativity.
           </div>
         </div>
       </div>
@@ -204,7 +204,7 @@ function App() {
           <div className="spin-in">{renderFrame()}</div>
         </div>
         <div className='text-4xl text-center'>
-          Mema Lisa
+          Meme Lisa
           <div className='text-lg'>circa 2024</div>
         </div>
       </div>
