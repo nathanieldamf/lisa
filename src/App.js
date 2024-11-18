@@ -195,7 +195,7 @@ function App() {
           Meme Lisa
           <div className='text-lg'>circa 2024</div>
           <div className='text-sm max-w-[350px]'>
-            "Meme Lisa" is a vibrant parody that reimagines the iconic Mona Lisa through the lens of crypto and internet culture. Adorned with outrageous hairstyles and colorful accessories, she embodies the playful and chaotic spirit of the digital age. With a mischievous smile, the Memecname.vercel-dns.com. Lisa invites viewers to engage with the unpredictable nature of contemporary digital culture, where art and humor converge in a lively celebration of creativity.
+            "Meme Lisa" is a vibrant parody that reimagines the iconic Mona Lisa through the lens of crypto and internet culture. Adorned with outrageous hairstyles and colorful accessories, she embodies the playful and chaotic spirit of the digital age. With a mischievous smile, the Meme Lisa invites viewers to engage with the unpredictable nature of contemporary digital culture, where art and humor converge in a lively celebration of creativity.
           </div>
         </div>
       </div>
