@@ -186,8 +186,8 @@ function App() {
         <span className="text-base font-semibold">• Mema Lisa</span>
       </div>
       <div className='flex absolute bottom-4 right-4 md:bottom-7 md:right-7 space-x-2'>
-        <a href="https://x.com/memalisacoin" className='hover:underline'>Twitter</a>
-        <a href="https://t.me/memalisaportal" className='hover:underline'>Telegram</a>
+        <a href="https://x.com/" className='hover:underline'>Twitter</a>
+        <a href="https://t.me/" className='hover:underline'>Telegram</a>
       </div>
       <div className='md:flex gap-4 hidden z-10'>
         <div className="spin-in">{renderFrame()}</div>
@@ -208,7 +208,7 @@ function App() {
           <div className='text-lg'>circa 2024</div>
         </div>
       </div>
-      <div className='absolute top-5 text-[8px] md:text-base'>CA: 2SMWEjHuBDKcdXcZzypfZSH3p5VpfWp9EkRVJym8pump</div>
+      <div className='absolute top-5 text-[8px] md:text-base'>CA: uploading..</div>
       <div className="spotlight-overlay fade-in"></div>
 
       {/* Play/Pause Button */}
